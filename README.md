@@ -19,9 +19,10 @@ sudo mv ghb /usr/local/bin/
 
 <div align="center">  
   <h3> A Quick Video (sounds on 🔊) </h3>
+  
+  https://user-images.githubusercontent.com/83657737/237024144-3183befa-cba8-40eb-81d8-1c607e07ce6c.mp4
+  
 </div>
-
-https://user-images.githubusercontent.com/83657737/237024144-3183befa-cba8-40eb-81d8-1c607e07ce6c.mp4
 
 - __Saves Password (token)__ : you just need to provide it with your username and password once, it will save it and every time you will write `ghb` it will automatically push without asking for credentials
 - __Checks For All The Common Pitfalls__ : 
