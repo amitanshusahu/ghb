@@ -20,7 +20,7 @@ sudo mv ghb /usr/local/bin/
 <div align="center">  
   <h3> A Quick Video (sounds on 🔊) </h3>
   
-  https://user-images.githubusercontent.com/83657737/237024144-3183befa-cba8-40eb-81d8-1c607e07ce6c.mp4
+  https://github.com/amitanshusahu/ghb/assets/83657737/404e6157-e0ed-4f0e-86f8-6317aeb7060d
   
 </div>
 
