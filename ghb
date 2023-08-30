@@ -99,6 +99,17 @@ REPO_URL=$(git config --get remote.origin.url)
 REPO_NAME=${REPO_URL##*/}   # Extract the repository name from the URL
 REPO_NAME=${REPO_NAME%.git} # Remove the .git extension from the name
 
+# Function to show a spinner
+spinner() {
+local chars="◐◓◑◒"
+    local i=1
+    while :; do
+        echo -ne "\r $LOGS Pushing changes: ${chars:$i:1} $NONE"
+        sleep 0.2
+        i=$(( (i+1) % 4 ))
+    done
+}
+
 # Check if user has provided a branch as an argument
 if [[ $1 ]]; then
     # Push to the provided branch
@@ -106,13 +117,18 @@ if [[ $1 ]]; then
 else
     # Push to curremt branch
     current_branch=`git rev-parse --abbrev-ref HEAD`
-    echo -e "\n $LOGS Pushing to GitHub... Please Wait... 𐅡 $NONE \n "
+    spinner & 
+    echo -e '\n'
+    spinner_pid=$!
+
     if git push -u "https://$USERNAME:$TOKEN@github.com/$USERNAME/$REPO_NAME.git" $curremt_branch &> .ghb_err.log; then
         #Push sucessful
+		kill $spinner_pid
         echo -e "\n $LOGS Pushed to GitHub $NONE \n "
         rm .ghb_err.log
     else
         #Push Faliled
+		kill $spinner_pid
         echo -e "\n $ERROR Push Failed !! $NONE \n "
         cat .ghb_err.log
         echo -e "\n  created file .ghb_err.log \n"
