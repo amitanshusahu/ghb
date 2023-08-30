@@ -118,17 +118,16 @@ else
     # Push to curremt branch
     current_branch=`git rev-parse --abbrev-ref HEAD`
     spinner & 
-    echo -e '\n'
     spinner_pid=$!
 
     if git push -u "https://$USERNAME:$TOKEN@github.com/$USERNAME/$REPO_NAME.git" $curremt_branch &> .ghb_err.log; then
         #Push sucessful
-		kill $spinner_pid
+	kill $spinner_pid
         echo -e "\n $LOGS Pushed to GitHub $NONE \n "
         rm .ghb_err.log
     else
         #Push Faliled
-		kill $spinner_pid
+	kill $spinner_pid
         echo -e "\n $ERROR Push Failed !! $NONE \n "
         cat .ghb_err.log
         echo -e "\n  created file .ghb_err.log \n"
