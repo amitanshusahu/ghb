@@ -117,6 +117,7 @@ if [[ $1 ]]; then
 else
     # Push to curremt branch
     current_branch=`git rev-parse --abbrev-ref HEAD`
+    echo -e "\n"
     spinner & 
     spinner_pid=$!
 
